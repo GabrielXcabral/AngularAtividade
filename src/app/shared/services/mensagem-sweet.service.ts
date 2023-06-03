@@ -1,0 +1,46 @@
+import { Injectable } from '@angular/core';
+import {IMensagem} from '../modelo/IMensagem';
+import Swal from 'sweetalert2';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MensagemSweetService extends IMensagem {
+  override alerta(mensagem: string): void {
+    throw new Error('Method not implemented.');
+  }
+  alert(mensagem: string): void {
+    throw new Error('Method not implemented.');
+  }
+
+  constructor() {
+    super();
+  }
+
+  erro(mensagem: string): void {
+    Swal.fire(
+      {
+        title: 'Erro',
+        timer: 5000,
+        text: mensagem,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      }
+    );
+  }
+
+  info(mensagem: string): void {
+  }
+
+  sucesso(mensagem: string): void {
+    Swal.fire(
+      {
+        title: 'Sucesso',
+        timer: 5000,
+        text: mensagem,
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }
+    );
+  }
+}
